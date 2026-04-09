@@ -83,6 +83,7 @@ class TranslatorApp:
         self._root.configure(bg=BG)
         self._root.geometry("900x620")
         self._root.attributes("-topmost", True)
+        self._root.attributes("-alpha", 0.92)
         self._root.protocol("WM_DELETE_WINDOW", self._on_close)
 
         self._build_ui()
