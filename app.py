@@ -365,6 +365,8 @@ class TranslatorApp:
 
         self._clear_text(self._left_text)
         self._clear_text(self._right_text)
+        self._translation_count = 0
+        self._counter_label.config(text="0 traducciones")
 
         # Resolve language codes from UI
         my_lang = LANGUAGES.get(self._my_lang_var.get(), "es")
