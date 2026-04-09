@@ -259,6 +259,7 @@ class TranslationPipeline:
             "es": "Spanish", "en": "English", "pt": "Portuguese",
             "fr": "French", "de": "German", "it": "Italian",
             "ja": "Japanese", "zh": "Chinese", "ko": "Korean",
+            "ar": "Arabic", "hi": "Hindi", "ru": "Russian", "tr": "Turkish",
         }
         target = lang_names.get(self._tgt_lang, self._tgt_lang)
         try:
