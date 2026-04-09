@@ -1,0 +1,4 @@
+openai
+TTS
+sounddevice
+numpy
