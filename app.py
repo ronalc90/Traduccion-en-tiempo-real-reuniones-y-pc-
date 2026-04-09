@@ -353,6 +353,7 @@ class TranslatorApp:
 
         self._config = auto_detect_devices(load_config())
         self._running = True
+        self._root.title("Traductor en Tiempo Real — Activo")
 
         self._switch_system_audio()
 
@@ -410,6 +411,7 @@ class TranslatorApp:
         self._stop_passthrough()
         self._banner.pack_forget()
         self._set_status("stopped")
+        self._root.title("Traductor en Tiempo Real — Detenido")
 
         def _shutdown():
             for p in pipelines:
