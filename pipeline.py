@@ -166,28 +166,18 @@ class TranslationPipeline:
     # ── Capture thread ────────────────────────────────────────────
 
     def _capture_loop(self):
-        _chunk_count = 0
-
         def callback(indata, frames, time_info, status):
-            nonlocal _chunk_count
             if not self._running:
                 return
             if status:
                 log.warning("[%s] capture status: %s", self._direction, status)
-            # Mute: discard input when muted
             if self._mic_muted:
                 return
-            # Gate: pause loopback capture while TTS plays on headphones
             if self._direction == "theirs" and self._tts_gate.is_set():
                 return
             chunk = indata[:, 0].copy()
-            rms = float(np.sqrt(np.mean(chunk ** 2)))
-            _chunk_count += 1
-            if _chunk_count % 25 == 0:
-                log.info("[%s] audio level: %.4f (threshold: 0.008)", self._direction, rms)
             phrase = self._buffer.add_chunk(chunk)
             if phrase is not None:
-                log.info("[%s] phrase detected, length: %.1fs", self._direction, len(phrase) / SAMPLE_RATE)
                 self._queue.put(phrase)
 
         try:
