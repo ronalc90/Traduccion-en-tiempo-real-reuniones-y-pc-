@@ -273,7 +273,7 @@ class TranslationPipeline:
         target = lang_names.get(self._tgt_lang, self._tgt_lang)
         try:
             resp = self._openai.chat.completions.create(
-                model="gpt-4o",
+                model="gpt-4o-mini",
                 temperature=0.1,
                 messages=[
                     {"role": "system", "content": SYSTEM_PROMPT},
