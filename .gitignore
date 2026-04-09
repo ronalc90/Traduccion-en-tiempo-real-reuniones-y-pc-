@@ -14,6 +14,8 @@ voice_sample.wav
 
 # macOS
 .DS_Store
+*.swp
+*~
 
 # IDE
 .vscode/
