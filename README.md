@@ -94,6 +94,17 @@ python3.11 main.py
 | **Silenciar Voz** | Alterna entre solo subtitulos y traduccion hablada de ellos |
 | **Oir Original** | Activa pass-through para escuchar la voz original de ellos sin filtro |
 
+### Atajos de teclado
+
+| Atajo | Accion |
+|---|---|
+| `Cmd + Enter` | Iniciar traduccion |
+| `Cmd + .` | Detener |
+| `Cmd + M` | Mutear/desmutear microfono |
+| `Cmd + S` | Silenciar/activar voz traducida |
+| `Cmd + O` | Oir/cortar audio original |
+| `Cmd + P` | Pausar/reanudar traduccion |
+
 ### Selectores de idioma
 
 - **Yo hablo en**: idioma en el que hablas

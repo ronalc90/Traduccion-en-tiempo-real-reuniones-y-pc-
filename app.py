@@ -85,6 +85,7 @@ class TranslatorApp:
         self._root.protocol("WM_DELETE_WINDOW", self._on_close)
 
         self._build_ui()
+        self._bind_shortcuts()
 
         # Pre-load TTS model in background so it's ready when user clicks Start
         self._preload_tts()
@@ -215,6 +216,15 @@ class TranslatorApp:
 
         self._cfg_btn = self._btn(ctrl_frame, "⚙️  Config", FG_DIM, self._open_config)
         self._cfg_btn.pack(side="right", padx=4)
+
+    def _bind_shortcuts(self):
+        """Bind keyboard shortcuts for quick control."""
+        self._root.bind("<Command-Return>", lambda _: self._start())
+        self._root.bind("<Command-period>", lambda _: self._stop())
+        self._root.bind("<Command-m>", lambda _: self._toggle_mute())
+        self._root.bind("<Command-s>", lambda _: self._toggle_mute_them())
+        self._root.bind("<Command-o>", lambda _: self._toggle_passthrough())
+        self._root.bind("<Command-p>", lambda _: self._toggle_pause())
 
     def _make_panel(self, parent, title: str, color: str) -> tk.Frame:
         frame = tk.Frame(
