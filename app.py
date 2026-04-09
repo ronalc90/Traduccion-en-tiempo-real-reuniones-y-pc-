@@ -72,6 +72,7 @@ class TranslatorApp:
         self._pipeline_mine: TranslationPipeline | None = None
         self._pipeline_theirs: TranslationPipeline | None = None
         self._running = False
+        self._translation_count = 0
         self._original_input: str | None = None
         self._original_output: str | None = None
         self._passthrough_active = False
@@ -171,6 +172,12 @@ class TranslatorApp:
             status_frame, text="", fg=FG_DIM, bg=CARD, font=("Helvetica", 9),
         )
         self._tts_badge.pack(side="left", padx=(12, 0))
+
+        # Translation counter
+        self._counter_label = tk.Label(
+            status_frame, text="0 traducciones", fg=FG_DIM, bg=CARD, font=("Helvetica", 9),
+        )
+        self._counter_label.pack(side="left", padx=(12, 0))
 
         # Subtitle selector (right side of status bar)
         tk.Label(
@@ -515,6 +522,8 @@ class TranslatorApp:
         widget.insert("end", f"{original}\n", "original")
         if translated:
             widget.insert("end", f"→ {translated}\n\n", "translated")
+            self._translation_count += 1
+            self._counter_label.config(text=f"{self._translation_count} traducciones")
         else:
             widget.insert("end", "→ [pausado]\n\n", "paused")
         widget.see("end")
