@@ -129,7 +129,7 @@ class TTSEngine:
 
         client = OpenAI(api_key=self._openai_key)
         resp = client.audio.speech.create(
-            model="tts-1-hd",
+            model="tts-1",
             voice="onyx",
             input=text,
             response_format="pcm",
