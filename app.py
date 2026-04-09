@@ -57,6 +57,10 @@ LANGUAGES = {
     "日本語": "ja",
     "中文": "zh",
     "한국어": "ko",
+    "العربية": "ar",
+    "हिन्दी": "hi",
+    "Русский": "ru",
+    "Türkçe": "tr",
 }
 LANG_NAMES = list(LANGUAGES.keys())
 
