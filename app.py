@@ -79,7 +79,7 @@ class TranslatorApp:
         self._passthrough_stream = None
 
         self._root = tk.Tk()
-        self._root.title("Traductor en Tiempo Real")
+        self._root.title("Traductor en Tiempo Real — Detenido")
         self._root.configure(bg=BG)
         self._root.geometry("900x620")
         self._root.attributes("-topmost", True)
