@@ -518,9 +518,11 @@ class TranslatorApp:
     # ── UI updates (main thread only) ─────────────────────────────
 
     def _update_text(self, direction: str, original: str, translated: str | None):
+        from datetime import datetime
+        ts = datetime.now().strftime("%H:%M:%S")
         widget = self._left_text if direction == "mine" else self._right_text
         widget.config(state="normal")
-        widget.insert("end", f"{original}\n", "original")
+        widget.insert("end", f"[{ts}] {original}\n", "original")
         if translated:
             widget.insert("end", f"→ {translated}\n\n", "translated")
             self._translation_count += 1
