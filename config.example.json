@@ -1,0 +1,10 @@
+{
+  "openai_api_key": "sk-your-key-here",
+  "elevenlabs_api_key": "",
+  "voice_id": "",
+  "voice_sample_path": "",
+  "mic_device": "",
+  "loopback_device": "",
+  "output_device": "",
+  "vb_cable_device": ""
+}
